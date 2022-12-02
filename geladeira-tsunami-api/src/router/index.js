@@ -4,6 +4,7 @@ import YunliView from '../views/YunliView.vue'
 import DprianView from '../views/DprianView.vue'
 import DprliveView from '../views/DprliveView.vue'
 import NonlyView from '../views/NonlyView.vue'
+import PerfilView from '../views/PerfilView.vue'
 
 
 const router = createRouter({
@@ -42,6 +43,11 @@ const router = createRouter({
       path: '/dprlive',
       name: 'dprlive',
       component: DprliveView
+    },
+    {
+      path: '/perfil',
+      name: 'perfil',
+      component: PerfilView
     }
   ]
 })

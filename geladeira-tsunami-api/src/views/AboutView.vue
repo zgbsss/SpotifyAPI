@@ -91,14 +91,15 @@ export default {
 <template>
   <header>
     <h1>TSIDGE</h1>
+    <RouterLink to="/perfil">
     <h2>{{ dados.display_name }}</h2>
+    </RouterLink>
   </header>
-  <hr>
   <div class="about">
     <div class="artistas">
       <div class="artista">
         <RouterLink to="/yunli">
-          <img class="artimg" src="public/yunli.jpg" alt="" />
+          <img :src="yunli.images[0].url" width="300" height="300">
           {{ yunli.name }}
           {{ yunli.genres }}
           {{ yunli.followers }}
@@ -106,7 +107,7 @@ export default {
       </div>
       <div class="artista">
         <RouterLink to="/nonly">
-          <img class="artimg" src="public/download.jpeg" alt="" />
+          <img :src="nonly.images[0].url" width="300" height="300">
           {{ nonly.name }}
           {{ nonly.genres }}
           {{ nonly.followers }}
@@ -114,7 +115,7 @@ export default {
       </div>
       <div class="artista">
         <RouterLink to="/dprian">
-          <img class="artimg" src="public/dprian.jpeg" alt="" />
+          <img :src="dprian.images[0].url" width="300" height="300">
           {{ dprian.name }}
           {{ dprian.followers }}
           {{ dprian.genres }}
@@ -122,7 +123,7 @@ export default {
       </div>
       <div class="artista">
         <RouterLink to="/dprlive">
-          <img src="public/dprlive.jpeg" alt="" class="artimg" />
+          <img :src="dprlive.images[0].url" width="300" height="300">
           {{ dprlive.name }}
           {{ dprlive.followers }}
           {{ dprlive.genres }}
@@ -132,43 +133,58 @@ export default {
   </div>
   <hr>
   <footer>
-    <p>{{ token }}</p>
   </footer>
 </template>
 
 <style>
-
 body {
-  background-color: #2f413a;
+  background-color: #384842;
   color: white;
 }
+header {
+  background-color: #2F413A;
+  display: flex;
+  padding: 20px;
+}
+h1 {
+  padding-left: 50px;
+  padding-right: 1000px;
+}
+h2 {
+  padding-left: 620px;
+  padding-right: 50px;
+}
+header a {
+  text-decoration: none;
+  color: white;
+}
+header a:hover {
+  color: #4D6360;
+}
+
 
 .artistas {
   display: flex;
   text-decoration: none;
 }
-
 .artista {
-  background-color: #4d6360;
+  background-color: #4D6360;
   color: white;
   border-radius: 10px;
-  width: 300px;
-  height: 400px;
+  width: 400px;
+  height: 500px;
   margin: auto;
   margin-top: 100px;
   margin-bottom: 100px;
 }
-
 .artista a {
   text-decoration: none;
   color: white;
   font-size: larger;
 }
-
 .artista a:hover {
-  color: #2f413a;
+  color: #384842;
 }
-
 .artimg {
   max-width: 200px;
   margin: 10px 10px 10px 10px;
