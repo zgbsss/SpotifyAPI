@@ -7,6 +7,10 @@ export default {
     return {
       dados: {},
       yunli: {
+        followers: {
+          total: 0
+        },
+        genres: [],
         images:[
           {
             url: ""
@@ -14,6 +18,10 @@ export default {
         ]
       },
       nonly: {
+        followers: {
+          total: 0
+        },
+        genres: [],
         images:[
           {
             url: ""
@@ -21,6 +29,10 @@ export default {
         ]
       },
       dprian: {
+        followers: {
+          total: 0
+        },
+        genres: [],
         images:[
           {
             url: ""
@@ -28,6 +40,10 @@ export default {
         ]
       },
       dprlive: {
+        followers: {
+          total: 0
+        },
+        genres: [],
         images:[
           {
             url: ""
@@ -115,7 +131,7 @@ export default {
     <div class="artistas">
       <div class="artista" >
         <RouterLink to="/yunli">
-          <img :src="yunli.images[0].url" width="300" height="300">
+          <img :src="yunli.images[0].url" width="350" height="350">
           {{ yunli.name }}
           {{ yunli.genres }}
           {{ yunli.followers }}
@@ -123,7 +139,7 @@ export default {
       </div>
       <div class="artista" >
         <RouterLink to="/nonly">
-          <img :src="nonly.images[0].url" width="300" height="300">
+          <img :src="nonly.images[0].url" width="350" height="350">
           {{ nonly.name }}
           {{ nonly.genres }}
           {{ nonly.followers }}
@@ -131,7 +147,7 @@ export default {
       </div>
       <div class="artista" >
         <RouterLink to="/dprian">
-          <img :src="dprian.images[0].url" width="300" height="300">
+          <img :src="dprian.images[0].url" width="350" height="350">
           {{ dprian.name }}
           {{ dprian.followers }}
           {{ dprian.genres }}
@@ -139,10 +155,18 @@ export default {
       </div>
       <div class="artista" >
         <RouterLink to="/dprlive">
-          <img :src="dprlive.images[0].url" width="300" height="300">
-          {{ dprlive.name }}
-          {{ dprlive.followers }}
-          {{ dprlive.genres }}
+          <img :src="dprlive.images[0].url" width="350" height="350">
+          <h3>
+            {{ dprlive.name }}
+          </h3>
+          <p>
+            Seguidores: {{ dprlive.followers.total }}
+          </p>
+          <p>
+            <span v-for="(genre, i) of dprlive.genres" :key="i">
+              | {{ genre }} | 
+            </span>
+          </p>
         </RouterLink>
       </div>
     </div>
@@ -198,6 +222,21 @@ header a:hover {
   margin: auto;
   margin-top: 100px;
   margin-bottom: 100px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+.artista img {
+  margin: 25px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+.artista h3 {
+  margin-left: 30px;
+}
+
+.artista p {
+  margin-left: 30px;
+  color: #a1aca8;
 }
 
 .artista a {
