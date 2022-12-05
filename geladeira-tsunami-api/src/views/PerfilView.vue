@@ -5,7 +5,13 @@ import { useAuthStore } from "../stores/auth"
 export default {
     data() {
     return{
-      dados: {},
+      dados: {
+        images:[
+          {
+            url: ""
+          }
+        ]
+      },
      };
     },
     computed: {
@@ -39,7 +45,7 @@ export default {
 </script>
 
 <template>
-    <img :src="dados.images[0].url" width="200" height="200">
+    <img :src="dados.images[0].url" width="300" height="300">
     <h1>{{ dados.display_name }}</h1>
     <p>{{ dados.email }}</p>
     <p>{{ dados.product }}</p>

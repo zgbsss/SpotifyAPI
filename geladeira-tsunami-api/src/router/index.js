@@ -16,12 +16,14 @@ const router = createRouter({
       component: HomeView
     },
     {
+      path: '/main',
+      name: 'main',
+      component: () => import('../views/MainView.vue')
+    },
+    {
       path: '/callback',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      name: 'callback',
+      component: () => import('../views/CallbackView.vue')
     },
     {
       path: '/yunli',
