@@ -45,10 +45,20 @@ export default {
 </script>
 
 <template>
+  <header>
     <img :src="dados.images[0].url" width="300" height="300">
+  </header>
+  <main>
     <h1>{{ dados.display_name }}</h1>
     <p>{{ dados.email }}</p>
     <p>{{ dados.product }}</p>
+  </main>
     <hr>
-    <p>{{ token }}</p> 
+  <footer>
+    <p>{{ token }}</p>
+  </footer> 
 </template>
+
+<style>
+
+</style>
