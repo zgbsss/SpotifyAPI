@@ -8,47 +8,47 @@ export default {
       dados: {},
       yunli: {
         followers: {
-          total: 0
+          total: 0,
         },
         genres: [],
-        images:[
+        images: [
           {
-            url: ""
-          }
-        ]
+            url: "",
+          },
+        ],
       },
       nonly: {
         followers: {
-          total: 0
+          total: 0,
         },
         genres: [],
-        images:[
+        images: [
           {
-            url: ""
-          }
-        ]
+            url: "",
+          },
+        ],
       },
       dprian: {
         followers: {
-          total: 0
+          total: 0,
         },
         genres: [],
-        images:[
+        images: [
           {
-            url: ""
-          }
-        ]
+            url: "",
+          },
+        ],
       },
       dprlive: {
         followers: {
-          total: 0
+          total: 0,
         },
         genres: [],
-        images:[
+        images: [
           {
-            url: ""
-          }
-        ]
+            url: "",
+          },
+        ],
       },
     };
   },
@@ -111,13 +111,12 @@ export default {
     },
   },
   async created() {
-    await this.getData()
+    await this.getData();
   },
   // async onUpdated() {
   //   await this.getData()
 
   // }
-
 };
 </script>
 <template>
@@ -129,51 +128,48 @@ export default {
   </header>
   <div class="about">
     <div class="artistas">
-      <div class="artista" >
+      <div class="artista">
         <RouterLink to="/yunli">
-          <img :src="yunli.images[0].url" width="350" height="350">
+          <img :src="yunli.images[0].url" width="350" height="350" />
           {{ yunli.name }}
           {{ yunli.genres }}
           {{ yunli.followers }}
         </RouterLink>
       </div>
-      <div class="artista" >
+      <div class="artista">
         <RouterLink to="/nonly">
-          <img :src="nonly.images[0].url" width="350" height="350">
+          <img :src="nonly.images[0].url" width="350" height="350" />
           {{ nonly.name }}
           {{ nonly.genres }}
           {{ nonly.followers }}
         </RouterLink>
       </div>
-      <div class="artista" >
+      <div class="artista">
         <RouterLink to="/dprian">
-          <img :src="dprian.images[0].url" width="350" height="350">
+          <img :src="dprian.images[0].url" width="350" height="350" />
           {{ dprian.name }}
           {{ dprian.followers }}
           {{ dprian.genres }}
         </RouterLink>
       </div>
-      <div class="artista" >
+      <div class="artista">
         <RouterLink to="/dprlive">
-          <img :src="dprlive.images[0].url" width="350" height="350">
+          <img :src="dprlive.images[0].url" width="350" height="350" />
           <h3>
             {{ dprlive.name }}
           </h3>
-          <p>
-            Seguidores: {{ dprlive.followers.total }}
-          </p>
+          <p>Seguidores: {{ dprlive.followers.total }}</p>
           <p>
             <span v-for="(genre, i) of dprlive.genres" :key="i">
-              | {{ genre }} | 
+              | {{ genre }} |
             </span>
           </p>
         </RouterLink>
       </div>
     </div>
   </div>
-  <hr>
-  <footer>
-  </footer>
+  <hr />
+  <footer></footer>
 </template>
 
 <style>
@@ -183,7 +179,7 @@ body {
 }
 
 header {
-  background-color: #2F413A;
+  background-color: #2f413a;
   display: flex;
   padding: 20px;
 }
@@ -204,9 +200,8 @@ header a {
 }
 
 header a:hover {
-  color: #4D6360;
+  color: #4d6360;
 }
-
 
 .artistas {
   display: flex;
@@ -214,7 +209,7 @@ header a:hover {
 }
 
 .artista {
-  background-color: #4D6360;
+  background-color: #4d6360;
   color: white;
   border-radius: 10px;
   width: 400px;
@@ -222,12 +217,18 @@ header a:hover {
   margin: auto;
   margin-top: 100px;
   margin-bottom: 100px;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+.artista :hover {
+  box-shadow: black;
 }
 
 .artista img {
-  margin: 25px;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  margin: 25px 25px 5px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
 
 .artista h3 {
@@ -243,10 +244,6 @@ header a:hover {
   text-decoration: none;
   color: white;
   font-size: larger;
-}
-
-.artista a:hover {
-  color: #384842;
 }
 
 .artimg {
