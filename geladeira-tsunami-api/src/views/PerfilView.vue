@@ -46,10 +46,10 @@ export default {
 
 <template>
   <header>
-    <img :src="dados.images[0].url" width="300" height="300">
+    <img :src="dados.images[0].url">
+    <h1>{{ dados.display_name }}</h1>
   </header>
   <main>
-    <h1>{{ dados.display_name }}</h1>
     <p>{{ dados.email }}</p>
     <p>{{ dados.product }}</p>
   </main>
@@ -60,5 +60,15 @@ export default {
 </template>
 
 <style>
-
+header {
+  background-color: #2f413a;
+  display: flex;
+}
+header img {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
 </style>
