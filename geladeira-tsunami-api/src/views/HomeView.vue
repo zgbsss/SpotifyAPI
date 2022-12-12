@@ -17,6 +17,14 @@
 </template>
 
 <style scoped>
+a:link {
+  color: white;
+  text-decoration: none;
+}
+a:visited {
+  color: white;
+  text-decoration: none;
+}
 .bemvindo{
   margin-left: 40px;
 }

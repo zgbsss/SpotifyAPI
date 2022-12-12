@@ -67,7 +67,7 @@ export default {
 <template>
   <div class="container">
     <header>
-      <h1>TSIDGE</h1>
+      <h1>Spotify Dôs</h1>
       <RouterLink to="/perfil">
         <div class="perfil">
           <img :src="dados.images[0].url" width="50" height="50" />
@@ -91,7 +91,7 @@ export default {
 
 <style scoped>
 .container {
-  background: linear-gradient(0, #26312d, #384842);
+  background: linear-gradient(0, #19201e, #3d4e48);
 }
 
 header {
