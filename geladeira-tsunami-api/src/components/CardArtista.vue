@@ -22,7 +22,8 @@ export default {
 
 <style scoped>
 .artista {
-  background-color: #4d6360;
+  background-color:rgba(0, 0, 0, 0.3);
+  background: linear-gradient(1, #00000000, #000000);
   color: white;
   border-radius: 10px;
   width: 400px;

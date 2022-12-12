@@ -65,45 +65,48 @@ export default {
 };
 </script>
 <template>
-  <header>
-    <h1>TSIDGE</h1>
-    <RouterLink to="/perfil">
+  <div class="container">
+    <header>
+      <h1>TSIDGE</h1>
+      <RouterLink to="/perfil">
         <div class="perfil">
           <img :src="dados.images[0].url" width="50" height="50" />
           <h2>{{ dados.display_name }}</h2>
         </div>
-        </RouterLink>
-  </header>
-  <div class="about">
-    <div class="artistas">
-      <CardArtista
-        v-for="artista of artistas"
-        :key="artista.id"
-        :artista="artista"
-      />
+      </RouterLink>
+    </header>
+    <div class="about">
+      <div class="artistas">
+        <CardArtista
+          v-for="artista of artistas"
+          :key="artista.id"
+          :artista="artista"
+        />
+      </div>
     </div>
+    <hr>
+    <footer></footer>
   </div>
-  <hr />
-  <footer></footer>
 </template>
 
 <style scoped>
+.container {
+  background: linear-gradient(0, #26312d, #384842);
+}
+
 header {
-  background-color: #2f413a;
+  color: white;
+  background-color: #26312d;
   display: flex;
   padding: 20px;
   box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
     rgba(17, 17, 26, 0.05) 0px 8px 32px;
   flex-direction: row;
   justify-content: space-between;
-  
 }
 
 h1 {
   padding-left: 50px;
-  margin-top: 10px;
-}
-h2 {
   margin-top: 10px;
 }
 
@@ -112,20 +115,27 @@ header a {
   color: white;
 }
 header a:hover {
-  color: #4d6360;
+  color: #2f413a;
 }
 
 .perfil {
   display: flex;
-  background-color: black;
+  background-color: #4d6360;
   border-radius: 50px;
   /* flex-direction: row; */
 }
 .perfil img {
-  margin-right: 15px;
+  margin-right: 10px;
+  padding: 2px;
   height: 50px;
   width: 50px;
   border-radius: 50%;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+.perfil h2 {
+  margin-top: 10px;
+  padding-right: 15px;
 }
 
 .artistas {
@@ -133,42 +143,4 @@ header a:hover {
   text-decoration: none;
 }
 
-.artista {
-  background-color: #4d6360;
-  color: white;
-  border-radius: 10px;
-  width: 400px;
-  height: 500px;
-  margin: auto;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
-    rgba(17, 17, 26, 0.05) 0px 8px 32px;
-}
-
-.artista img {
-  margin: 25px 25px 5px;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
-    rgba(17, 17, 26, 0.05) 0px 8px 32px;
-}
-
-.artista h3 {
-  margin-left: 30px;
-}
-
-.artista p {
-  margin-left: 30px;
-  color: #a1aca8;
-}
-
-.artista a {
-  text-decoration: none;
-  color: white;
-  font-size: larger;
-}
-
-.artimg {
-  max-width: 200px;
-  margin: 10px 10px 10px 10px;
-}
 </style>

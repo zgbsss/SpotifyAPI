@@ -1,22 +1,22 @@
 <script>
 import axios from "axios";
-import { mapStores, mapState } from "pinia"
-import { useAuthStore } from "../stores/auth"
+import { mapStores, mapState } from "pinia";
+import { useAuthStore } from "../stores/auth";
 export default {
-    data() {
-    return{
+  data() {
+    return {
       dados: {
-        images:[
+        images: [
           {
-            url: ""
-          }
-        ]
+            url: "",
+          },
+        ],
       },
-     };
-    },
-    computed: {
+    };
+  },
+  computed: {
     ...mapStores(useAuthStore),
-    ...mapState(useAuthStore, ['token'])
+    ...mapState(useAuthStore, ["token"]),
   },
   methods: {
     getHashParams() {
@@ -32,7 +32,7 @@ export default {
       return hashParams;
     },
   },
-  async created (){
+  async created() {
     console.log(this.token);
     let response = await axios.get("https://api.spotify.com/v1/me", {
       headers: {
@@ -40,35 +40,42 @@ export default {
       },
     });
     this.dados = response.data;
-  }
-}
+  },
+};
 </script>
 
 <template>
-  <header>
-    <img :src="dados.images[0].url">
-    <h1>{{ dados.display_name }}</h1>
-  </header>
-  <main>
-    <p>{{ dados.email }}</p>
-    <p>{{ dados.product }}</p>
-  </main>
-    <hr>
-  <footer>
-    <p>{{ token }}</p>
-  </footer> 
+  <div class="container">
+    <header>
+      <img :src="dados.images[0].url" />
+      <h1>{{ dados.display_name }}</h1>
+    </header>
+    <main>
+      <p>{{ dados.email }}</p>
+      <p>{{ dados.product }}</p>
+    </main>
+    <hr />
+    <footer>
+      <p>{{ token }}</p>
+    </footer>
+  </div>
 </template>
 
 <style>
 header {
-  background-color: #2f413a;
+  background-color: #26312d;
   display: flex;
 }
 header img {
   height: 300px;
   width: 300px;
   border-radius: 50%;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
-    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.container {
+  background: linear-gradient(0, #26312d, #384842);
+  color: white;
 }
 </style>
