@@ -3,6 +3,7 @@ import axios from "axios";
 import { mapStores, mapState, mapActions } from "pinia";
 import { useAuthStore } from "../stores/auth";
 import CardArtista from "@/components/CardArtista.vue";
+import FooterView from "@/components/FooterView.vue";
 export default {
   data() {
     return {
@@ -77,25 +78,65 @@ export default {
     </header>
     <div class="about">
       <div class="artistas">
-        <CardArtista
-          v-for="artista of artistas"
-          :key="artista.id"
-          :artista="artista"
-        />
+        <CardArtista v-for="artista of artistas" :key="artista.id" :artista="artista" />
       </div>
     </div>
-    <hr>
-    <footer></footer>
+    <footer>
+      <h3>Developers:</h3>
+      <div class="zgbsss">
+        <p>zgbsss</p>
+        <a href="https://github.com/zgbsss" class="fa fa-github"></a>
+        <a href="https://twitter.com/elfzwonpil" class="fa fa-twitter"></a>
+        <a href="https://www.instagram.com/z.gbsss/" class="fa fa-instagram"></a>
+      </div>
+      <div class="felepopolo">
+        <p>felepopolo</p>
+        <a href="https://github.com/felipejare" class="fa fa-github"></a>
+        <a href="https://twitter.com/felepopolo" class="fa fa-twitter"></a>
+        <a href="https://www.instagram.com/jare_kuhl/" class="fa fa-instagram"></a>
+      </div>
+    </footer>
   </div>
 </template>
 
 <style scoped>
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #26312d;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  padding: 30px;
+}
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  color: #4d6360;
+}
+.fa-github:hover {
+  color: #333333;
+}
+.fa-twitter:hover {
+  color: #1DA1F2;
+}
+.fa-instagram:hover {
+  color: #E4405F;
+}
+div p {
+  text-decoration: underline;
+}
+
+
 .container {
   background: linear-gradient(0, #19201e, #3d4e48);
 }
 
 header {
-  color: white;
   background-color: #26312d;
   display: flex;
   padding: 20px;
@@ -114,6 +155,7 @@ header a {
   text-decoration: none;
   color: white;
 }
+
 header a:hover {
   color: #2f413a;
 }
@@ -122,8 +164,8 @@ header a:hover {
   display: flex;
   background-color: #4d6360;
   border-radius: 50px;
-  /* flex-direction: row; */
 }
+
 .perfil img {
   margin-right: 10px;
   padding: 2px;
@@ -133,6 +175,7 @@ header a:hover {
   box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
     rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
+
 .perfil h2 {
   margin-top: 10px;
   padding-right: 15px;
@@ -142,5 +185,4 @@ header a:hover {
   display: flex;
   text-decoration: none;
 }
-
 </style>
