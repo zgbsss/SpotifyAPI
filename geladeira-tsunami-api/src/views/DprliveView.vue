@@ -2,10 +2,18 @@
 import axios from "axios";
 import { mapStores, mapState } from "pinia";
 import { useAuthStore } from "../stores/auth";
+
 export default {
+  
   data() {
     return {
-      dados: {},
+      dados: {
+        images: [
+          {
+            url: "",
+          },
+        ],
+      },
       her: [],
       dprlive: {},
     };
@@ -58,18 +66,21 @@ export default {
 };
 </script>
 <template>
+  
   <div class="container ">
-    <a href="http://localhost:5173/main" class="backbutton">Voltar</a>
-    
     <div class="topo">
-      <p>
-        {{ dprlive.name }}
-        {{ dprlive.genres }}
-        {{ dprlive.followers }}
-      </p>
+      <a href="http://localhost:5173/main" class="backbutton"></a>
       <img :src="her.images[0].url" width="200" height="200" />
-      <h4>Album</h4>
-      <h1>{{ her.name }}</h1> 
+      <div class="texttopo">
+        <h5>Album</h5>
+        <h1>{{ her.name }}</h1>
+      </div> 
+      <div class="artcard">
+        <img :src="dprlive.images[0].url" width="350" height="350" class="imgart" />
+        <p class="titulo">
+          {{ dprlive.name }}
+        </p>
+      </div>  
     </div>
     <div class="blocoprincipal">
       <div class="informations">  
@@ -84,6 +95,8 @@ export default {
       </div>  
     </div>  
   </div>
+
+
 </template>
 <style scoped>
 .container{
@@ -99,6 +112,7 @@ export default {
   margin: auto;
   width: 100%;
   padding: 10px;
+  padding-left: 400px;
 }
 
 .informations{
@@ -113,6 +127,17 @@ export default {
   margin: auto;
   width: 80%;
   padding: 10px;
+  display: flex;
+  height: 300px;
+}
+
+.topo h1{
+  
+  font-size: 100px;
+}
+
+.texttopo{
+    margin: auto;
 }
 
 img {
@@ -264,13 +289,55 @@ img {
   top: 0;
 }
 
-.backbutton{
-  background-color: black;
-  color: white;
-  border-radius: 30%;
-  height: 100px;
-  width: 100px;
-  margin: auto;
-  text-decoration: none;
+.backbutton {
+  background-color: #9c7b8b;
+  color: black;
+  margin: 10px;
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 30px;
+  height: 30px;
+  border: 2px solid;
+  border-radius: 100px;
 }
+.backbutton::after {
+  color: black;
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+  transform: rotate(45deg);
+  left: 10px;
+  top: 8px;
+}
+.backbutton:hover {
+  background-color: #d49ab6;
+}
+
+.artcard{
+  background-color: black;
+  height: 40px;
+  width: 120px;
+  display: flex;
+  border-radius: 30px;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.artcard :hover{
+  background-color: #0efc8d;
+}
+
+.imgart{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
 </style>

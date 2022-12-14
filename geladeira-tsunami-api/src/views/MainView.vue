@@ -3,7 +3,6 @@ import axios from "axios";
 import { mapStores, mapState, mapActions } from "pinia";
 import { useAuthStore } from "../stores/auth";
 import CardArtista from "@/components/CardArtista.vue";
-import FooterView from "@/components/FooterView.vue";
 export default {
   data() {
     return {
@@ -72,13 +71,23 @@ export default {
       <RouterLink to="/perfil">
         <div class="perfil">
           <img :src="dados.images[0].url" width="50" height="50" />
-          <h2>{{ dados.display_name }}</h2>
+          <div class="dropdown">  
+              <span><h2>{{ dados.display_name }}</h2>
+              </span>
+              <div class="dropdown-content">
+                <p>Perfil</p>
+              </div>
+            </div>  
         </div>
       </RouterLink>
     </header>
     <div class="about">
       <div class="artistas">
-        <CardArtista v-for="artista of artistas" :key="artista.id" :artista="artista" />
+        <CardArtista
+          v-for="artista of artistas"
+          :key="artista.id"
+          :artista="artista"
+        />
       </div>
     </div>
     <footer>
@@ -110,7 +119,7 @@ footer {
   padding: 30px;
 }
 .fa {
-  padding: 20px;
+  padding: 10px;
   font-size: 30px;
   width: 30px;
   text-align: center;
@@ -132,11 +141,13 @@ div p {
 }
 
 
+
 .container {
   background: linear-gradient(0, #19201e, #3d4e48);
 }
 
 header {
+  color: white;
   background-color: #26312d;
   display: flex;
   padding: 20px;
@@ -155,7 +166,6 @@ header a {
   text-decoration: none;
   color: white;
 }
-
 header a:hover {
   color: #2f413a;
 }
@@ -164,8 +174,8 @@ header a:hover {
   display: flex;
   background-color: #4d6360;
   border-radius: 50px;
+  /* flex-direction: row; */
 }
-
 .perfil img {
   margin-right: 10px;
   padding: 2px;
@@ -175,7 +185,6 @@ header a:hover {
   box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
     rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
-
 .perfil h2 {
   margin-top: 10px;
   padding-right: 15px;
@@ -185,4 +194,30 @@ header a:hover {
   display: flex;
   text-decoration: none;
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.navbar {
+  background-color: black;
+  display: flex;
+  margin-left: 20px;
+  width: 30px;
+  height: 30px;
+}
+
+
+
 </style>
